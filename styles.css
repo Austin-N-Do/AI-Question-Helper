@@ -1,0 +1,81 @@
+/* Animation for highlighted answers */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(76, 175, 80, 0);
+  }
+}
+
+/* Pulse animation for background glow */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Slide animation for arrow */
+@keyframes slide {
+  0% {
+    transform: translateY(-50%) translateX(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-50%) translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Spinner animation for loading */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spinner {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #4CAF50;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+/* Style for answer overlays */
+.ai-answer-overlay {
+  transition: all 0.3s ease;
+}
+
+.ai-answer-overlay:hover {
+  background: rgba(76, 175, 80, 0.3) !important;
+}
+
+/* Style for explanations */
+.ai-explanation {
+  transition: all 0.3s ease;
+}
+
+.ai-explanation:hover {
+  background: #e3f2fd !important;
+  transform: translateX(5px);
+}
+
+/* Ensure highlighted elements are visible */
+[data-ai-highlighted="true"] {
+  scroll-margin-top: 100px;
+}
+
+/* Smooth scrolling for the page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Make sure arrows don't interfere with clicks */
+.ai-answer-arrow,
+.ai-answer-glow {
+  pointer-events: none !important;
+}
